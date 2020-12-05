@@ -24,3 +24,11 @@ ex:int rand(void);->沒有引數但有整數傳回值
 常數與變數的區別，常數不行被指定或改變  
 宣告方式:``const type var-name;``，另外可以使用``#define``開頭的前置處理器  
 來變換常數或字串的自訂識別名稱(切記不可加上分號) 語法:``#define 識別子 字串``
+* ***printf()格式化輸出函式***  
+語法:``printf(control string ,argument);``
+control string 是控制字串，包含想輸出的文字格式，以及想輸出的變數轉換格式或特殊字元
+argument:引數，變數個數依照control string決定要輸出的變數有幾個
+%d->整數, %f->浮點數,%lf->雙精度浮點數,%c->字元,%S->字串,%%->印出%%,\\->印出\,\'->印出',\''->印出'',\n->換行,\b->逼一聲,\t->Tab  
+ex:printf(%d,number)->將變數number以%d所代表的整數型態印出  
+
+
