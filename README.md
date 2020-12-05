@@ -34,8 +34,7 @@ ex:printf("%d %f %lf",number1,number2,number3)->將變數number以%d所代表的
 單行註解以「//」,多行註解以「/*開頭」,『結尾 */』來包覆  
 * ***scanf()格式化輸入函式***  
 語法:``scanf(control string ,argument);``
-control string 是控制字串，包含想輸出的文字格式，以及想輸出的變數轉換格式或特殊字元，輸入時必須用空格或是enter鍵來區分，  
-用法可以參考變數轉換符號
+control string 是控制字串，包含想輸出的文字格式，以及想輸出的變數轉換格式或特殊字元，輸入時必須用空格或是enter鍵來區分，用法可以參考變數轉換符號
 argument:引數，跟printf()函數較為不同，必須在想要儲存的變數名稱前增加一個``&符號``  
 ex:scanf("%d %d", &i, &j); 此敘述會將控制台輸入的兩變數，分別儲存入整數變數i及變數j
 
