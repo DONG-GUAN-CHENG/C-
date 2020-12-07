@@ -204,9 +204,9 @@ do{
 語法:  
 ```  
 for(i=0;i<=10;i++){  
-if(i%2)  
-continue;  
-total=total+i;  
+>if(i%2)  
+>>continue;  
+>total=total+i;  
 }  
 ```
 * ***break敘述***  
