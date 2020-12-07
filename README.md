@@ -26,7 +26,7 @@ ex:int rand(void);->沒有引數但有整數傳回值
 宣告方式:``const type var-name;``，另外可以使用``#define``開頭的前置處理器  
 來變換常數或字串的自訂識別名稱(切記不可加上分號) 語法:``#define 識別子 字串``
 * ***printf()格式化輸出函式***  
-語法:``printf(control string ,argument);``
+語法:``printf("control string",argument);``
 control string 是控制字串，包含想輸出的文字格式，以及想輸出的變數轉換格式或特殊字元  
 argument:引數，變數個數依照control string決定要輸出的變數有幾個  
 (變數轉換符號)%d->整數, %f->浮點數,%lf->雙精度浮點數,%c->字元,%S->字串,%%->印出%,\\->印出\,  
@@ -34,7 +34,7 @@ argument:引數，變數個數依照control string決定要輸出的變數有幾
 ex:printf("%d %f %lf",number1,number2,number3)->將變數number以%d所代表的整數型態印出  
 單行註解以「//」,多行註解以「/*開頭」,『結尾 */』來包覆  
 * ***scanf()格式化輸入函式***  
-語法:``scanf(control string ,argument);``
+語法:``scanf("control string",argument);``
 control string 是控制字串，包含想輸出的文字格式，以及想輸出的變數轉換格式或特殊字元，輸入時必須用空格或是enter鍵來區分，用法可以參考變數轉換符號
 argument:引數，跟printf()函數較為不同，必須在想要儲存的變數名稱前增加一個``&符號``  
 ex:scanf("%d %d", &i, &j); 此敘述會將控制台輸入的兩變數，分別儲存入整數變數i及變數j
@@ -170,3 +170,9 @@ for(起始式;判斷式;運算式)
 程式區塊;  
 }  
 ```  
+起始式:初始化一個或多個變數的值  
+判斷式:藉此判斷是否進入程式區塊  
+運算式:對變數做一些運算  
+ex: for(i=0;i<5;!++)  
+printf("%d",i);  
+
