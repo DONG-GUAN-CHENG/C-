@@ -203,3 +203,11 @@ do{
 此時就可用cintinue敘述，通常搭配判斷結構，如if敘述  
 * ***break敘述***  
 break敘述雨continue敘述剛好相反，程式遇到break時，將會直接跳出迴圈，不在執行迴圈內的敘述  
+語法:  
+```  
+for(i=10;i<100;i++){  
+if(!(i%7)) 
+break;  
+printf("%d",i);  
+}
+```
