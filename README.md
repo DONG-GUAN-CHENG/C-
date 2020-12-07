@@ -132,8 +132,7 @@ else{
 }  
 }
 * ***判斷結構之switch敘述***  
-為何將多選一的情況簡化，還提供了switch敘述，switch會根據某一個字元或是整數變數，來判斷要進入哪一個程式碼區塊 
-直到遇到break敘述，再跳出switch的程式區塊;如果沒有值符合，會進入default之後的程式區塊，有時也可以不寫default，直接跳出switch區塊
+為何將多選一的情況簡化，還提供了switch敘述，switch會根據某一個字元或是整數變數，來判斷要進入哪一個程式碼區塊，直到遇到break敘述，再跳出switch的程式區塊;如果沒有值符合，會進入default之後的程式區塊，有時也可以不寫default，直接跳出switch區塊  
 語法:  
 switch(變數或運算式){  
 case 值1:  
