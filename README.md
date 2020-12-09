@@ -254,10 +254,12 @@ C語言本身就是由許多函數所構成，一開始由main()函式出發，�
 (1) extern修飾字:  
 用於告訴編譯器，此變數已在其他地方宣告了，不在配置記憶體給該變數  
 語法`` extern type var-name;``  
-ps:前置處理器是在編譯器編譯程式前進行作用，#include的作用就是將相關的檔案含括近來使用  
+ps:前置處理器是在編譯器編譯程式前進行作用，#include的作用就是將相關的檔案含括進來使用  
 第一種->#include <filename> 使用角括號會在系統設定的含括檔目錄中去尋找  
 第二種->#include "filename" 使用雙引號會在目前檔案的工作目錄去尋找檔案，還可以指定路徑去尋找檔案，例如 #include"d:/bill.h"   
-(2) 
+(2) register修飾字:  
+register是CPU上的memory，CPU要存取register的資料遠比存取memory裡的資料要快。因此C語言提供了register修飾字，讓變數可以持續留在CPU的register內，藉此增加運算的速度，通常迴圈次數頻繁，控制迴圈次數的變數就可用register來宣告，可節省時間  
+ 
 
 
 
