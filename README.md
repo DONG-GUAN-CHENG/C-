@@ -259,7 +259,27 @@ ps:前置處理器是在編譯器編譯程式前進行作用，#include的作用
 第二種->#include "filename" 使用雙引號會在目前檔案的工作目錄去尋找檔案，還可以指定路徑去尋找檔案，例如 #include"d:/bill.h"   
 (2) register修飾字:  
 register是CPU上的memory，CPU要存取register的資料遠比存取memory裡的資料要快。因此C語言提供了register修飾字，讓變數可以持續留在CPU的register內，藉此增加運算的速度，通常迴圈次數頻繁，控制迴圈次數的變數就可用register來宣告，可節省時間  
- 
+(3) static修飾字  
+可以使變數只初始化一次  
+ ex:  
+``` 
+int main(void)  
+{  
+int i;  
+for(i=1;i<5;i++)  
+printf("x=%d\n",f());  
+system("pause");  
+}  
+int f(void)  
+{  
+ static int x=0;  
+ return x++;  
+}
+```
 
+                  
+            
+                
+ 
 
 
