@@ -275,7 +275,8 @@ int f(void)
  static int x=0;  
  return x++;  
 }
-```
+```  
+因為變數x使用了static修飾，只會被初始化一次，不會再下次進入時一再被指定為0  
 
                   
             
