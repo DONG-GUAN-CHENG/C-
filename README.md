@@ -470,6 +470,23 @@ p=&x;
 ** pp=10;  
 ```  
 * ***函式的指標***  
- 
+ 程式在執行時，除了變數在記憶體中。程式本身也在記憶體中，當一個指標指向一個函式時，可以間接使用指標呼叫該函式，而函式指標的型態必須與函式回傳型態相同  
+```
+#include <stdio.h>
+#include<stdlib.h>
+int add(int,int);
+int main(void)
+{
+  int ans,(*p) (int x,int y); 
+  p = add;            
+  ans = (*p) (3,4);      
+  printf("%d\n",ans);
+system("pause");    
+}
+int add(int x,int y)
+{
+  return x+y;
+}
+```
 
 
