@@ -477,9 +477,9 @@ p=&x;
 int add(int,int);
 int main(void)
 {
-  int ans,(*p) (int x,int y); 
-  p = add;            
-  ans = (*p) (3,4);      
+  int ans,(*p) (int x,int y); //宣告函式指標p，具有兩個整數引數
+  p = add;      //將p指向函式add      
+  ans = (*p) (3,4);      //間接呼叫add函式
   printf("%d\n",ans);
 system("pause");    
 }
