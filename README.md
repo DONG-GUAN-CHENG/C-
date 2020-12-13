@@ -416,7 +416,31 @@ printf("%d",sizeof(a));
 
 * ***將指標當引數傳遞進函式***  
 在C語言中，可以將引數來傳遞函式，因指標紀錄了變數的記憶體位址，可以利用指標進行資料修改
-
+```
+#include <stdio.h>
+#include<stdlib.h>
+void vset(int,int);
+void rset(int*,int);
+int main(void)
+{
+  int x=0,*p;       
+  p = &x;            
+  vset(x,1);            
+  printf("x = %d ",x);
+  rset(p,1);          
+printf("x = %d\n",x);
+system("pause");     
+}
+void vset(int x,int y)
+{
+  x = y;
+}
+void rset(int *p,int y)
+{
+  *p = y;              
+}
+```
+vset函式修改的是區域變數x，與main()函式內的變數x不相關，所以第一個x=0。rset函式* p=y敘述修改的是p所指向的變數，也就是main()函式內的變數x，所以x的值變成1  
 
                 
  
