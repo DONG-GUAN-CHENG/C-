@@ -513,5 +513,17 @@ puts函式接受一字元指標的引數，他會從該位址開始將字元輸�
 ----------------------------  
 接受使用者輸入字串，可以使用``scanf()函式``，scanf()函式會接受空白字元或是使用者按下enter鍵前的字串，因此若希望整行字串被儲存下來，可以使用``get()函式``  
 其宣告語法如下:  
-``char *gets(char *str); or gets(字元陣列名稱);``
+``char *gets(char *str); or gets(字元陣列名稱);``  
+
+* ***簡介字串處理函式***  
+C語言提供了多個標準的字串處理函式。ex:strcat()、strncat()、strchr()、strrchr()、strcmp()、strncmp()...等。使用時記得將string.h標頭檔涵括進來，語法如下:  
+``#include <string.h>``  
+(1) strcat()與strncat():連結字串
+strcat()與strncat()可以將兩個字串連接在一起，函式雛型宣告如下:  
+```
+char * strcat(char * str1,const char * str2);  
+char * strncat(char * str1,const char * str2,size_t len);  
+```  
+strcat()->會將str2字串連接在str1字串後，再回傳str1的記憶體位址    
+strncat()->會根據引數len，決定字串str2連結幾個字元至字串str1，最多連接len個字元，若len值大於str2字串的長度，則會全部連接，作用等同於strcat()函式  
 
