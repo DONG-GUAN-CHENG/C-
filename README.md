@@ -543,4 +543,19 @@ strrchr()->會將引數ch視為char型態，在str字串中尋找最後出現的
 int strcmp(const char * str1,const char * str2);  
 char strncmp(const char * str1,const char * str2,size_t len);  
 ```   
-strcmp->比較兩字串str1,str2，若兩者相同則回傳0，若str1字元值(從第一個字元開始比較)小於
+strcmp->比較兩字串str1,str2，若兩者相同則回傳0，若str1字元值(從第一個字元開始比較)小於str2則回傳負值，若str1字元值大於str2則回傳正值  
+strncmp()->與strcmp()函式類似，但strncmp()函式最多只會比對len個字元，限制比對的字元數  
+
+(4) strcpy()與strncpy函式:複製字串  
+將一個字串的內容複製至另一個字串，它們的雛型宣告如下:  
+```
+char * strcpy(char *to,const char *from);  
+char * strncpy(char *to,const char *from,size_t len);  
+```  
+strcpy()->會將from字串(連同'\0')複製至to字串，之後傳回to字串的位址  
+strncpy()->會根據引數，從from字串最多複製len個字元至to字串  
+
+(5) strlen()函式:計算字串長度  
+會計算字串的長度，並回傳字串的長度(含空格)，函式雛型宣告如下:  
+``size_t strlen(const char * str);``  
+
