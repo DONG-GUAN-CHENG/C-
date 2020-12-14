@@ -517,7 +517,8 @@ puts函式接受一字元指標的引數，他會從該位址開始將字元輸�
 
 * ***簡介字串處理函式***  
 C語言提供了多個標準的字串處理函式。ex:strcat()、strncat()、strchr()、strrchr()、strcmp()、strncmp()...等。使用時記得將string.h標頭檔涵括進來，語法如下:  
-``#include <string.h>``  
+``#include <string.h>``. 
+
 (1) strcat()與strncat()函式:連結字串
 strcat()與strncat()可以將兩個字串連接在一起，函式雛型宣告如下:  
 ```
