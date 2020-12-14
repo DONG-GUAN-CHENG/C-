@@ -518,7 +518,7 @@ puts函式接受一字元指標的引數，他會從該位址開始將字元輸�
 * ***簡介字串處理函式***  
 C語言提供了多個標準的字串處理函式。ex:strcat()、strncat()、strchr()、strrchr()、strcmp()、strncmp()...等。使用時記得將string.h標頭檔涵括進來，語法如下:  
 ``#include <string.h>``  
-(1) strcat()與strncat():連結字串
+(1) strcat()與strncat()函式:連結字串
 strcat()與strncat()可以將兩個字串連接在一起，函式雛型宣告如下:  
 ```
 char * strcat(char * str1,const char * str2);  
@@ -527,3 +527,11 @@ char * strncat(char * str1,const char * str2,size_t len);
 strcat()->會將str2字串連接在str1字串後，再回傳str1的記憶體位址    
 strncat()->會根據引數len，決定字串str2連結幾個字元至字串str1，最多連接len個字元，若len值大於str2字串的長度，則會全部連接，作用等同於strcat()函式  
 
+(2) strchr()與strrchr()函式:尋找字元  
+用於在字串中尋找一個字元，函式雛型宣告如下:  
+```
+char * strchr(const char * str,int ch);  
+char * strrchr(const char * str,int ch);  
+```  
+strchr()->會在引數ch視為char型態，在str字串中尋找第一個出現的ch，若有找到，則回傳所在的位址，若沒有找到則回傳NULL值   
+strrchr()->會將引數ch視為char型態，在str字串中尋找最後出現的ch，若有找到，則回傳所在的位址，若沒有找到則回傳0值  
