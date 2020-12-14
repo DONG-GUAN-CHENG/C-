@@ -558,4 +558,4 @@ strncpy()->會根據引數，從from字串最多複製len個字元至to字串
 (5) strlen()函式:計算字串長度  
 會計算字串的長度，並回傳字串的長度(含空格)，函式雛型宣告如下:  
 ``size_t strlen(const char * str);``  
-
+***  
