@@ -536,3 +536,11 @@ char * strrchr(const char * str,int ch);
 ```  
 strchr()->會在引數ch視為char型態，在str字串中尋找第一個出現的ch，若有找到，則回傳所在的位址，若沒有找到則回傳NULL值   
 strrchr()->會將引數ch視為char型態，在str字串中尋找最後出現的ch，若有找到，則回傳所在的位址，若沒有找到則回傳0值  
+
+(3)strcmp()與strncmp()函式:比較字串  
+比較兩個字串，根據結果回傳不同的值，函式雛型宣告如下:  
+```
+int strcmp(const char * str1,const char * str2);  
+char strncmp(const char * str1,const char * str2,size_t len);  
+```   
+strcmp->比較兩字串str1,str2，若兩者相同則回傳0，若str1字元值(從第一個字元開始比較)小於
