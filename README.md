@@ -580,7 +580,7 @@ ex:  #define add(x+y) x+y
      printf("%d",add(2,3));  
 
 * ***#if、#else、#ifdef、#ifndef和#endif指令***  
-#if 和#endif指令其使用語法如下:  
+#if 、#else和#endif指令其使用語法如下:  
 ```  
 #if 判別式  
 程式區塊;  
@@ -596,4 +596,21 @@ ps:當判別式為真值(True)時，編譯其下方的程式區塊直到#endif�
 #endif  
 ```  
 ps:當判別式為真值(True)時，編譯其下方的程式敘述直到#else為止;當判別式為偽值(False)時，#else下方直到#endif的程式敘述將會被編譯  
+
+#ifdef與#ifndef指令其使用語法如下:  
+```  
+#ifdef 識別子  
+程式區塊；  
+#endif  
+```  
+ps:#ifdef->會根據識別子是否被定義，當被定義時，下方直到#endif的程式敘述將被編譯，反之則不被編譯  
+
+```
+#ifndef 識別子  
+程式區塊;  
+#endif  
+```  
+ps:#ifndef與#ifdef相反，當識別子未被定義時，下方直到#endif的敘述將被編譯，反之則不編譯  
+
+
 
