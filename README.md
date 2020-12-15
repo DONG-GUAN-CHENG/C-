@@ -579,7 +579,7 @@ strncpy()->會根據引數，從from字串最多複製len個字元至to字串
 ex1:  
 #define add(x+y) x+y  
 printf("%d",add(2,3));  
-ex2: 
+ex2:  
 #undef NUM  
 #define NUM 50  
 
