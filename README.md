@@ -575,11 +575,13 @@ strncpy()->會根據引數，從from字串最多複製len個字元至to字串
 #define指令可用來定義常數或巨集，語法如下:  
 ``#define 識別子 字串``  
 在前置處理器時，只會做字串工作，將程式裡所有的識別子，取代為後方的字串(變數)。經過#define指令所定義的識別子，並不是一個變數，所以無法更改它的值。而識別子也可有引數的存在，語法如下:  
-``#include 識別子1(識別子2,識別子3...) 字串(運算式)``  ->這樣的宣告方式就可以製作``巨集``。另外，利用#undef指令可將之前#define過的識別子取消  
-ex1:  #define add(x+y) x+y  
->>>>printf("%d",add(2,3));  
-ex2: #undef NUM  
->>>>>#define NUM 50  
+``#include 識別子1(識別子2,識別子3...) 字串(運算式)``  ->這樣的宣告方式就可以製作``巨集``。另外，利用``#undef指令``可將之前#define過的識別子取消  
+ex1:  
+#define add(x+y) x+y  
+printf("%d",add(2,3));  
+ex2: 
+#undef NUM  
+#define NUM 50  
 
 * ***#if、#else、#ifdef、#ifndef和#endif指令***  
 #if 、#else和#endif指令其使用語法如下:  
