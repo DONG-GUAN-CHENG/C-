@@ -657,11 +657,11 @@ gets(cat.name);
 語法:  
 ``typedef 資料型態 識別子``  
 ex:  
-typedef struct
- {
-int minite;
-float second;
- } time;
-time record = {3, 27.25};  
+typedef struct  
+ {  
+int minite;  
+float second;  
+ } time;  
+time record = {3, 27.25};   
 
 * ***將結構傳遞進函式***  
