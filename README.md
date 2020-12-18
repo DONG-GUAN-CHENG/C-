@@ -677,22 +677,26 @@ return s1.sex==s2.sex;
 }  
 ```  
 * ***結構與指標***  
-結構也可以使用指標來間接存取，當``指標指向一個結構變數``，存取結構的成員時。需使用``「->」``運算子  
+結構也可以使用指標來間接存取，當``指標指向一個結構變數``，使用結構指標存取結構的成員時。需使用``「->」``運算子  
 ```
 struct friends{  
 char birth[10];  
 int sex;  
 char name[10];  
 }f[10];  
+
 int main(void) 
 { 
 int i;  
-struct friends *p =f;  
+struct friends *p =f;  //指向friends結構的指標p
 for(i=0;i<10,i++,p++)
 {  
-scanf("%s",p->birth); 
+scanf("%s",p->birth);  
 scanf("%d",&p->sex);  
 scanf("%d",p->name); 
 } 
-}
+} 
+ps 1:其中p是一個指標，存取結構中的字元陣列birth時，直接使用「->」，不需再加上&運算子，也就是說指向結構內的成員birth為一個指標，指向一個字元陣列，因此可直接放在scanf()函式後當引數  
+ps 2:使用
+ps:其中p是一個指標，存取結構中的字元陣列birth時，直接使用「->」，不需再加上&運算子，也就是說指向結構內的成員birth為一個指標，指向一個字元陣列，因此可直接放在scanf()函式後當引數  
 ```
