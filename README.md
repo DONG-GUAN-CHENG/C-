@@ -791,6 +791,8 @@ ps:scanf也可指定最小寬度，它會限制儲存進變數的位數個數，
 int getchar(void);  
 int putchar(int ch);
 ```
-getchar()函式會要求使用者
+getchar()函式會要求使用者輸入一個字元，並回傳該字元的ASCll值，這是因為當getchar()發生錯誤時，會回傳EOF(定義在stdio.h中的負整數值)，所以會以int型態回傳，不過在使用時也可以直接以一個char型態變數來接受getchar()的回傳值，c語言會自動做型態的轉換  
+puchar()函式會將引數中的ch輸出至螢幕上，與getchar相同，當函式執行成功時，putchar會以int型態回傳該字元的ASCll值，若失敗則回傳EOF  
 
+* ***串流(Stream)的概念***  
 
