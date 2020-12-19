@@ -658,17 +658,6 @@ cat.sex=0;
 gets(dog.name);  
 gets(cat.name);  
 
-自訂型態(typedef)  
-語法:  
-``typedef 資料型態 識別子``  
-ex:  
-typedef struct  
- {  
-int minite;  
-float second;  
- } time;  
-time record = {3, 27.25};   
-
 * ***將結構傳遞進函式***  
 結構也可作為函式的引數傳入函式之中  
 ```  
@@ -760,4 +749,14 @@ ps 2:列舉變數就是整數型態的變數，列舉變數也可儲存不再列
 
 
 * ***typedef 指令***  
-
+自訂型態(typedef) 沒有定義新型態的功能，但可以將現有的型態新的名稱，節省程設撰寫的時間，也可使城市更加益讀且較有結構，宣告語法如下: 
+``typedef 舊資料型態名稱 新資料型態名稱;``  
+ex:  
+typedef struct skill{  
+int head;  
+int tail;  
+int body;  
+} SKILL;  
+SKILL snl;  
+  
+ps: 上方範例，SKILL並不是結構變數，而是typedef所定義的新型態
