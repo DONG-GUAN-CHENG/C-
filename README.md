@@ -766,7 +766,7 @@ ps: 上方範例，SKILL並不是結構變數，而是typedef所定義的新型�
 
 * ***控制台(console)的I/O***  
 C語言當中兩個最基本的輸出入函式:printf()和scanf()函式  
->(1)printf()函式  
+(1)printf()函式  
 雛形宣告如下:  
 ```int printf(const char * control_string,arguments...);```
-ps:printf()函式
+ps:printf()函式會依據控制字串control_string的格式
