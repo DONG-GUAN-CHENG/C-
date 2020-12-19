@@ -708,7 +708,7 @@ float f;
 };  
 
 int main(){  
-union my_union un;  
+union my_union un;  //union可加可不加  
 un.i=10;  
 un.f=10.25;  
 printf("%d %f",un.i,un.f);  
