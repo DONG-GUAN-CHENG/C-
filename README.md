@@ -768,5 +768,7 @@ ps: 上方範例，SKILL並不是結構變數，而是typedef所定義的新型�
 C語言當中兩個最基本的輸出入函式:printf()和scanf()函式  
 (1)printf()函式  
 雛形宣告如下:  
-```int printf(const char * control_string,arguments...);```
-ps:printf()函式會依據控制字串control_string的格式
+```int printf(const char * control_string,arguments...);```  
+ps:printf()函式會依據控制字串control_string的格式，輸出至螢幕上，在control_string中可使用一些特殊符號，來產生換行效果或是往後去對應argument內的變數輸出，可用的特殊符號如下:  
+(變數轉換符號)%d->整數, %f->浮點數,%lf->雙精度浮點數,%c->字元,%S->字串,%%->印出%,\\->印出\,%e->浮點數(科學記號，小寫的e),%E->浮點數(科學記號，大寫的E),%g->在%e,%ｆ中較短的表示法，不列印不必要的0和小數點,%o->八進位整數(無正負號),%x->十六進位整數,%p->指標位址,\'->印出',\''->印出'',\n->換行,\b->逼一聲,\t->Tab  
+上述輸出格式
