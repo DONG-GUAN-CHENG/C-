@@ -717,4 +717,12 @@ int a;
 char b[3];  
 double c;  
 } ul;  
+
+int main(){  
+union my_union un;  
+un.i=10;  
+un.f=10.25;  
+printf("%d %f",un.i,un.f);  
+return 0;  
+}  
 此範例宣告了一個聯合ul，具有３個成員，變數a、字元陣列b與浮點數c，在記憶體中使用同一塊空間配置變數，而存取聯合成員與結構成員相同，同樣使用「.」與「->」運算子，而 union 的大小，就是 union 結構中型態的最大值，如果 union 中宣告了一個 short (2 bytes)，和一個 double (8 bytes)，那這個 union 的大小就會是 8 bytes。  
