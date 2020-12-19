@@ -766,7 +766,7 @@ ps: 上方範例，SKILL並不是結構變數，而是typedef所定義的新型�
 
 * ***控制台(console)的I/O***  
 C語言當中兩個最基本的輸出入函式:printf()和scanf()函式  
-(1)printf()函式  
+(1) printf()函式  
 雛形宣告如下:  
 ```int printf(const char * control_string,arguments...);```  
 ps:printf()函式會依據控制字串control_string的格式，輸出至螢幕上，在control_string中可使用一些特殊符號，來產生換行效果或是往後去對應argument內的變數輸出，可用的特殊符號如下:  
@@ -779,7 +779,7 @@ printf("%5d\n",10); ->最小寬度5，因此在印出10之前會有三格空白
 printf("%2.4f\n",12.35); ->最小寬度2，小數點寬度四格，因小數點後會以空白補齊列出12.3500  
 printf("%-5d\n",20) ->其中「-」符號是指定printf函是在輸出時「向左對齊」，一般默認為向右對齊，故在輸出20後會有三個空白  
  
-scanf()函式  
+(2) scanf()函式  
 雛形宣告如下:  
 ```int scanf(const char * control_string,arguments...);```  
-scanf函式與printf函式類似，根據控制字串
+scanf函式與printf函式類似，根據控制字串的描述
