@@ -762,3 +762,11 @@ SKILL snl;
 ps: 上方範例，SKILL並不是結構變數，而是typedef所定義的新型態名稱，最後一行使用SKILL來宣告一個結構變數snl，效果等同於使用struct snake宣告  
 
 ***
+#### ***輸出入與檔案操作***   
+
+* ***控制台(console)的I/O***  
+C語言當中兩個最基本的輸出入函式:printf()和scanf()函式  
+>(1)printf()函式  
+雛形宣告如下:  
+```int printf(const char * control_string,arguments...);```
+ps:printf()函式
