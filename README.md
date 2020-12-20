@@ -820,4 +820,62 @@ ps 2:fopen()函式的mode有很多種包含:"r"->開啟一個檔案，只能讀�
 int fgetc(FILE *stream);  
 int fputc(int ch,FILE *stream);
 ```  
-fgetc函式的引數為一個串流，fgetc函式從串流中取得下一個字元，回傳該字元值，若遇到錯誤或是檔案已經結
+fgetc函式的引數為一個串流，fgetc函式從串流中取得下一個字元，回傳該字元值，若遇到錯誤或是檔案已經結束時則回傳EOF  
+fputc函式會將第一個引數轉換為char型態，將此字元寫入串流stream中，若成功則回傳該字元，失敗則回傳EOF  
+ex:  
+```
+#include <stdio.h>
+int main(void)
+{
+  char ch;  
+  FILE *fp;  
+  if((fp=fopen("12-3-1-textfile.txt","r")) == NULL) exit(1);
+  while((ch = fgetc(fp)) != EOF)
+    fputc(ch,stdout);  //將字元一個個輸出到stdout(螢幕)
+  fclose(fp);
+  system("pause");
+}  
+```  
+
+
+(３) fgets()與fputs()函式:從串流中輸出入字串  
+可以指定串流輸出入字串，它們的雛形宣告如下:  
+```  
+char *fgetc(char *str, int num,FILE *stream);  
+int fputc(char *str, FILE *stream);
+```  
+ps 1:fgets函式會從stream內讀取字串，直到遇到(\n字元)，或是直到num個字元被輸入，之後存入字元陣列str中，不同於gets函式，fgets會將換行字元也儲存。若fgets函式執行成功，則回傳str，反之則會傳NULL  
+ps 2:fputs函式會將字串str輸出至stream，不同於puts函式，fputs函式不會自動在輸出完畢後加上換行字元，而puts函式則自動換行。若fputs函式執行成功則回傳一個非零值，反之則回傳EOF  
+ex:  
+```
+#include <stdio.h>
+int main(void)
+{
+  char buf[80];
+  FILE *fp;
+  if((fp=fopen("12-3-1-textfile.txt","r")) == NULL) exit(1);
+  while(fgets(buf,80,fp) != NULL) 
+    fputs(buf,stdout);
+  fclose(fp);
+  system("pause");
+}  
+```
+(4)fprintf()與fscanf()函式:串流輸出入函式   
+與先前的printf和scanf函式功能相同，只是多加了一個指標引數，使其可以指定串流輸出，函式雛形宣告如下:  
+```  
+int fprintf(FILE *fp, char *control string, arguments...);  
+int fputc(FILE *fp, char *control string, arguments...);  
+```   
+
+(5)fread()與fwrite()函式:二進位串流輸出入函式   
+是專門用在二進位串流的I/O函式，好處在於對於數值的輸出入，不必轉換為字元形式，效率上會比較好，而且在二進位的串流下，不限制任何型態的I/O，只注意目前輸出或輸入了多少個位元組  
+```
+size_t fread(void *buffer,size_t size, size_t num, FILE *fp);  
+size_t fwrite(void *buffer,size_t size, size_t num, FILE *fp);  
+```
+ps:void型態的指標，可以指向任意型態的指標，因此這兩函式存取型態不受限制  
+ps 1:fread()函式會從二進位串流的目前位置，讀取num個大小為size的為元組，之後儲存進入buffer陣列(任意型態)，最後回傳成功讀取的資料數。藉由回傳值是否等於num值，可以判斷檔案是否讀取完畢，回傳值等於num時，表示檔案讀取已結束   
+ps 2:fwrite()函式會從buffer陣列中，取num個大小為size的位元組，寫入二進位串流，最後回傳值為成功寫入的位元組，如果回傳值小於num值，則表示輸出過程發生錯誤  
+
+
+
