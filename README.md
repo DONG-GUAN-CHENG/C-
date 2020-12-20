@@ -878,5 +878,14 @@ ps:void型態的指標，可以指向任意型態的指標，因此這兩函式�
 ps 1:fread()函式會從二進位串流的目前位置，讀取num個大小為size的為元組，之後儲存進入buffer陣列(任意型態)，最後回傳成功讀取的資料數。藉由回傳值是否等於num值，可以判斷檔案是否讀取完畢，回傳值等於num時，表示檔案讀取已結束   
 ps 2:fwrite()函式會從buffer陣列中，取num個大小為size的位元組，寫入二進位串流，最後回傳值為成功寫入的位元組，如果回傳值小於num值，則表示輸出過程發生錯誤  
 
-
+(6) fseek()、ftell()與rewind()函式:變更在串流內的位置函式  
+可設定檔案指標在串流中的位置，串流都是直線型的，往下走就無法回頭，這三個函式使我們不必重新開啟串流，可以直接改變目前所在位置，設置在串流內自由移動，程式雛形宣告如下:  
+```  
+int fseek(FILE *fp,long offset,int origin);  
+long ftell(FILE *stream);  
+void rewind(FILE *stream);  
+```  
+ps 1: fseek函式可設定檔案指標在串流中的位置，會從指定的origin位置，移動offset個位元組，若fseek函式更改成功則回傳0，更改失敗則回傳非零值  
+ps 2: ftell函式會回傳stream的目前位置，若發生錯誤則回傳-1  
+ps 3: rewind函式會將stream的目前位置設為該stream的開頭  
 
