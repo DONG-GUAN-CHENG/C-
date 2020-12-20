@@ -806,6 +806,7 @@ C語言定義了三種基本串流:stdin、stdout與stderr
 
 * ***檔案的I/O***  
 C語言使用串流的概念進行檔案處理，檔案的I/O方式是:宣告一個FILE型態的指標，指向一個開啟的串流，藉由間接存取指標來讀取或寫入檔案。  
+
 (1) fopen()與fclose()函式:串流的開啟與關閉，雛形宣告如下:  
 ```  
 FILE *fopen(const char *fname,const char *mode);  
@@ -860,14 +861,14 @@ int main(void)
   system("pause");
 }  
 ```
-(4)fprintf()與fscanf()函式:串流輸出入函式   
+(4) fprintf()與fscanf()函式:串流輸出入函式   
 與先前的printf和scanf函式功能相同，只是多加了一個指標引數，使其可以指定串流輸出，函式雛形宣告如下:  
 ```  
 int fprintf(FILE *fp, char *control string, arguments...);  
 int fputc(FILE *fp, char *control string, arguments...);  
 ```   
 
-(5)fread()與fwrite()函式:二進位串流輸出入函式   
+(5) fread()與fwrite()函式:二進位串流輸出入函式   
 是專門用在二進位串流的I/O函式，好處在於對於數值的輸出入，不必轉換為字元形式，效率上會比較好，而且在二進位的串流下，不限制任何型態的I/O，只注意目前輸出或輸入了多少個位元組  
 ```
 size_t fread(void *buffer,size_t size, size_t num, FILE *fp);  
