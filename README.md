@@ -759,7 +759,7 @@ int body;
 } SKILL;  
 SKILL snl;  
   
-ps: 上方範例，SKILL並不是結構變數，而是typedef所定義的新型態名稱，最後一行使用SKILL來宣告一個結構變數snl，效果等同於使用struct snake宣告  
+ps: 上方範例，SKILL並不是結構變數，而是typedef所定義的新型態名稱，最後一行使用SKILL來宣告一個結構變數snl，效果等同於使用struct skill宣告  
 
 ***
 #### ***輸出入與檔案操作***   
