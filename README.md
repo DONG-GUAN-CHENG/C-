@@ -990,4 +990,13 @@ ps:利用C語言模擬堆疊操作，最簡單是使用一個陣列，以及使�
 佇列這種資料結構會接受兩種I/O命令:「enqueue」與「dequeue」  
 「enqueue」->這個指令可將一個元素加入佇列的尾端  
 「dequeue」->將在佇列最前端的元素取出  
-ps:使用
+ps:使用C語言模擬佇列操作，最簡單的方式也是使用一個陣列，當對佇列做enqueue和dequeue命令時，需要維護兩資訊:佇列的前端(front)及尾端(rear)，因此我們可以將陣列及紀錄前後端的變數，使用結構(structure)來包裝起來  
+ex:
+```
+struct queue{  
+int q[100];
+int front;
+int rear;
+};
+```
+ps2:上放飯粒鐘
