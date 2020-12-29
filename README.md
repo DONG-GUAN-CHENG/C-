@@ -707,7 +707,7 @@ ps:上述是宣告library為一個具有MAX個元素的陣列，陣列每個元�
 struct name{
 char firstname[20];
 char lastname[20];
-}
+};
 
 struct guy{
 struct name handle;
