@@ -95,7 +95,7 @@ void inputData()
     }
 
 
-    printf( "\n此次考試中，各類考生人數分別為:\nA:%d \tnB:%d \tnC:%d \tD:%d\n",
+    printf( "\n此次考試中，各類考生人數分別為:\nA:%d \tB:%d \tC:%d \tD:%d\n",
                       rankA, rankB, rankC, rankD );
     printf( "\n A類別代表的是全部都及格，B類別代表的是有一科不及格\n");
     printf( " C類別代表的為兩科不及格，D類別代表的為三科以上不及格\n");
