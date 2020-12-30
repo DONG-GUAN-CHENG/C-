@@ -4,16 +4,16 @@
 #define BOOK_FILE "book.log"
 #define DATA_FILE "data.log"
 
-struct MEMBER {  /*使用struct定義會員資料，包含編號、姓名、地址、年齡、電話*/ 
-    int id;   
-    char member_name[10]; 
-    char address_name[50]; 
-    int age;  
-    char phone_name[20]; 
+struct MEMBER {  /*使用struct定義會員資料，包含編號、姓名、地址、年齡、電話*/
+    int id;
+    char member_name[10];
+    char address_name[50];
+    int age;
+    char phone_name[20];
 } members[MAXNUM];
 
-struct BOOK {   /*使用struct定義書籍資料，包含編號、書名、出版社、分級、進書狀態、借閱狀態、*/
-    int book_id; 
+struct BOOK {   /*使用struct定義書籍資料，包含編號、書名、出版社、分級、進書日期、借閱狀態、*/
+    int book_id;
     char book_name[80];
     char club_name[80];
     int level;
@@ -28,7 +28,9 @@ struct DATA {  /*使用struct定義借還資料*/
     int book_id[6];
 } data[MAXNUM];
 
-// ™Ï©l§∆∑|≠˚∏ÍÆ∆
+//--------------------
+
+//初始化會員資料
 void initMember(struct MEMBER members[])
 {
     int i;
@@ -37,7 +39,7 @@ void initMember(struct MEMBER members[])
     }
 }
 
-// ™Ï©l§∆Æ—ƒy∏ÍÆ∆
+//初始化書籍資料
 void initBooks(struct BOOK books[])
 {
     int i;
@@ -46,7 +48,7 @@ void initBooks(struct BOOK books[])
     }
 }
 
-// ™Ï©l§∆≠…Æ—¬k¡Ÿ∏ÍÆ∆
+//初始化借書紀錄
 void initData(struct DATA data[])
 {
     int i;
@@ -55,7 +57,9 @@ void initData(struct DATA data[])
     }
 }
 
-// ∏¸§J∑|≠˚∏ÍÆ∆
+//--------------------
+
+// 載入會員資料
 void loadMember(FILE * fp, struct MEMBER members[])
 {
     int i;
@@ -69,7 +73,7 @@ void loadMember(FILE * fp, struct MEMBER members[])
     }
 }
 
-// ∏¸§JÆ—ƒy∏ÍÆ∆
+// 載入書籍資料
 void loadBooks(FILE * fp, struct BOOK books[])
 {
     int i;
@@ -84,7 +88,7 @@ void loadBooks(FILE * fp, struct BOOK books[])
     }
 }
 
-// ∏¸§J≠…Æ—¨ˆø˝ 
+// 載入借書資料
 void loadData(FILE * fp, struct DATA data[])
 {
     int i, j;
@@ -100,7 +104,9 @@ void loadData(FILE * fp, struct DATA data[])
     }
 }
 
-// Æ⁄æ⁄∑|≠˚ID∑j¥M≠…æ\¨ˆø˝¶Ï∏m
+//----------------
+
+// 根據會員ID搜尋借閱紀錄位置
 int searchData(struct DATA data[], int id)
 {
     int i, index;
@@ -114,7 +120,7 @@ int searchData(struct DATA data[], int id)
     return index;
 }
 
-// Æ⁄æ⁄Æ—ƒyID∑j¥M∏”Æ—ƒy™∫∏ÍÆ∆¶Ï∏m
+// 根據書籍ID搜尋該書籍的資料位置
 int searchBooks(struct BOOK books[], int book_id)
 {
     int i, index;
@@ -128,7 +134,7 @@ int searchBooks(struct BOOK books[], int book_id)
     return index;
 }
 
-// ∑j¥M∑|≠˚™∫∏ÍÆ∆¶Ï∏m
+// 根據會員的資料位置
 int searchMember(struct MEMBER members[], int id)
 {
     int i, index;
@@ -142,12 +148,13 @@ int searchMember(struct MEMBER members[], int id)
     return index;
 }
 
-// ≈„•‹∑|≠˚∏ÍÆ∆
+//-----------------
+// 顯示會員資料
 void showMember(struct MEMBER members[])
 {
     int i, counter;
     counter = 0;
-    printf("§w•[§J™∫∑|≠˚=> \n");
+    printf("已加入的會員=> \n");
     for (i = 1; i <= 256; i++) {
         if (members[i].id == -1) {
             break;
@@ -164,15 +171,15 @@ void showMember(struct MEMBER members[])
         printf("\n");
         counter = counter + 1;
     }
-    printf("¶@%dµß∏ÍÆ∆\n", counter);
+    printf("共%d筆資料\n", counter);
 }
 
-// ≈„•‹Æ—ƒy∏ÍÆ∆
+// 顯示書籍資料
 void showBooks(struct BOOK books[])
 {
     int i, counter;
     counter = 0;
-    printf("§wæ÷¶≥™∫Æ—ƒy=> \n");
+    printf("已擁有的書籍=> \n");
     for (i = 1; i <= 256; i++) {
         if (books[i].book_id == -1) {
             break;
@@ -191,21 +198,24 @@ void showBooks(struct BOOK books[])
         printf("\n");
         counter = counter + 1;
     }
-    printf("¶@%dµß∏ÍÆ∆\n", counter);
+    printf("共%d筆資料\n", counter);
 }
 
-// ≈„•‹≠…Æ—¬k¡Ÿ∏ÍÆ∆
+// 顯示借書歸還資料
 void showData(struct DATA data[], int id, int index)
 {
     int i;
-    printf("±z§w≠…§U¶CÆ—ƒy:\n");
+    printf("您已借下列書籍:\n");
     for (i = 1; i <= data[index].book_num; i++) {
         printf("%d ", data[index].book_id[i]);
     }
     printf("\n");
 }
 
-// ∑sºWÆ—ƒy∏ÍÆ∆
+//-----------------
+
+//--------新增或刪除會員、書籍和借閱紀錄---------
+//新增書籍資料
 int addBooks(struct BOOK books[])
 {
     int i;
@@ -214,7 +224,7 @@ int addBooks(struct BOOK books[])
     for (i = 1; i < 256; i++) {
         if (books[i].book_id == -1) {
             printf("\t");
-            printf("øÈ§JÆ—ƒyΩs∏π:");
+            printf("輸入書籍資料:");
             scanf("%d", &book_id);
             printf("\t");
             index = searchBooks(books, book_id);
@@ -222,16 +232,16 @@ int addBooks(struct BOOK books[])
                 return 2;
             }
             books[i].book_id = book_id;
-            printf("øÈ§JÆ—¶W:");
+            printf("輸入書名:");
             scanf("%s", books[i].book_name);
             printf("\t");
-            printf("øÈ§J•X™©™¿¶W∫Ÿ:");
+            printf("輸入出版社名稱:");
             scanf("%s", books[i].club_name);
             printf("\t");
-            printf("øÈ§JÆ—™∫§¿Ø≈:");
+            printf("輸入書的分級:");
             scanf("%d", &books[i].level);
             printf("\t");
-            printf("øÈ§J∂iÆ—§È¥¡:");
+            printf("輸入進書日期:");
             scanf("%s", books[i].date_name);
             printf("\t");
             books[i].state_book = 0;
@@ -241,7 +251,7 @@ int addBooks(struct BOOK books[])
     }
 }
 
-// ßR∞£Æ—ƒy
+// 刪除書籍
 int subBooks(struct BOOK books[], int book_id)
 {
     int i, j;
@@ -257,7 +267,7 @@ int subBooks(struct BOOK books[], int book_id)
     return 2;
 }
 
-// ∑sºW∑|≠˚
+// 新增會員
 int addMember(struct MEMBER members[], struct DATA data[])
 {
     int i, j;
@@ -266,7 +276,7 @@ int addMember(struct MEMBER members[], struct DATA data[])
     for (i = 1; i < 256; i++) {
         if (members[i].id == -1) {
             printf("\t");
-            printf("øÈ§J∑|≠˚Ωs∏π:");
+            printf("輸入會員編號:");
             scanf("%d", &id);
             printf("\t");
             index = searchMember(members, id);
@@ -274,16 +284,16 @@ int addMember(struct MEMBER members[], struct DATA data[])
                 return 2;
             }
             members[i].id = id;
-            printf("øÈ§J©m¶W:");
+            printf("輸入姓名:");
             scanf("%s", members[i].member_name);
             printf("\t");
-            printf("øÈ§J¶aß}:");
+            printf("輸入地址:");
             scanf("%s", members[i].address_name);
             printf("\t");
-            printf("øÈ§J¶~ƒ÷:");
+            printf("輸入年齡:");
             scanf("%d", &members[i].age);
             printf("\t");
-            printf("øÈ§Jπq∏‹:");
+            printf("輸入電話:");
             scanf("%s", members[i].phone_name);
             printf("\t");
 
@@ -299,7 +309,7 @@ int addMember(struct MEMBER members[], struct DATA data[])
     }
 }
 
-// ßR∞£∑|≠˚
+// 刪除會員
 int subMember(struct MEMBER members[], struct DATA data[], int id)
 {
     int i, j;
@@ -317,7 +327,7 @@ int subMember(struct MEMBER members[], struct DATA data[], int id)
     return 2;
 }
 
-// ∑|≠˚≠…Æ—
+// 會員借書
 int addData(struct DATA data[], struct BOOK books[], int book_id, int index)
 {
     int i;
@@ -343,7 +353,7 @@ int addData(struct DATA data[], struct BOOK books[], int book_id, int index)
     return 2;
 }
 
-// ∑|≠˚¡ŸÆ—
+// 會員還書
 int subdata(struct DATA data[], struct BOOK books[], int book_id, int index)
 {
     int i;
@@ -366,7 +376,7 @@ int subdata(struct DATA data[], struct BOOK books[], int book_id, int index)
     return 2;
 }
 
-// ¿x¶s∑|≠˚∏ÍÆ∆
+// 儲存會員資料
 void saveMember(FILE * fp, struct MEMBER members[])
 {
     int i;
@@ -387,7 +397,7 @@ void saveMember(FILE * fp, struct MEMBER members[])
     }
 }
 
-// ¿x¶sÆ—ƒy∏ÍÆ∆
+// 儲存書籍
 void saveBooks(FILE * fp, struct BOOK books[])
 {
     int i;
@@ -410,7 +420,7 @@ void saveBooks(FILE * fp, struct BOOK books[])
     }
 }
 
-// ¿x¶s≠…¡ŸÆ—µ≤™G
+// 儲存借還書結果
 void saveData(FILE * fp, struct DATA data[])
 {
     int i, j;
@@ -431,6 +441,7 @@ void saveData(FILE * fp, struct DATA data[])
     }
 }
 
+//---------主程式-----------
 int main()
 {
     FILE *fp;
@@ -446,27 +457,27 @@ int main()
     initBooks(books);
     initData(data);
 
-    // ∏¸§J∑|≠˚∏ÍÆ∆
+    // 載入會員資料
     fp = fopen(MEMBER_FILE, "r");
     loadMember(fp, members);
     fclose(fp);
-    // ∏¸§JÆ—ƒy∏ÍÆ∆
+    // 載入書籍資料
     fp = fopen(BOOK_FILE, "r");
     loadBooks(fp, books);
     fclose(fp);
-    // ∏¸§J≠…Æ—¬k¡Ÿ∏ÍÆ∆
+    // 載入借書歸還資料
     fp = fopen(DATA_FILE, "r");
     loadData(fp, data);
     fclose(fp);
 
-    printf("¢z¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢{\n\
-¢x                                                ¢x\n\
-¢x°iÆ—ƒyØ≤≠…®t≤Œ°j                                ¢x\n\
-¢x≈˝®œ•Œ™ÃØ‡¬«•—¶π®t≤Œ∂i¶Ê≠…¡ŸÆ—,≈„•‹§Œ∫ﬁ≤zµ•∞ ß@ ¢x\n\
-¢|¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢}\n");
+    printf("----------------------------------------\n\
+|                                                \n\
+|[書籍租借系統]                                      \n\
+|讓使用者能藉由此系統進行借還書、顯示及管理等動作            \n\
+|--------------------------------------------------| \n");
 
     while (1) {
-        printf("\nΩ–øÔæ‹®≠§¿ (A.∫ﬁ≤z≠˚ B.∑|≠˚ C.•[§J∑s∑|≠˚ D.µ≤ßÙ) >");
+        printf("\n請選擇身份 (A.管理員 B.會員 C.加入新會員 D.結束 >");
         fflush(stdin);
         scanf("%c", &user);
         switch (user) {
@@ -484,19 +495,18 @@ int main()
                 saveData(fp, data);
                 fclose(fp);
                 printf("\n");
-                printf("Ω–øÈ§J´¸•O\n");
-                printf("\n1.∑sºWÆ—ƒy 2.ßR∞£Æ—ƒy 3.ºW•[∑|≠˚ 4.ßR∞£∑|≠˚\n\
-5.≈„•‹Æ—ƒy 6.≈„•‹∑|≠˚ 7.µ≤ßÙ>");
+                printf("請輸入指令\n");
+                printf("\n1. 新增書籍 2. 刪除書籍 3.增加會員 4.刪除會員 5.顯示書籍 6.顯示會員 7.結束>");
                 fflush(stdin);
                 scanf("%c", &choice);
                 switch (choice) {
                 case '1':
                     result = addBooks(books);
                     if (result == 1) {
-                        printf("∑sºWÆ—ƒyßπ¶®\n");
+                        printf("新增書籍完成\n");
                     }
                     if (result == 2) {
-                        printf("§w¶≥¶πÆ—\n");
+                        printf("已有此書\n");
                     }
                     fp = fopen(BOOK_FILE, "w");
                     saveBooks(fp, books);
@@ -505,37 +515,37 @@ int main()
                     break;
 
                 case '2':
-                    printf("øÈ§J±˝ßR∞£™∫Æ—ƒyΩs∏π:");
+                    printf("輸入欲刪除的書籍編號:");
                     scanf("%d", &book_id);
                     result = subBooks(books, book_id);
                     if (result == 1) {
-                        printf("ßR∞£Æ—ƒyßπ¶®\n");
+                        printf("刪除書籍完成\n");
                     }
                     if (result == 2) {
-                        printf("¨dµL¶πÆ—\n");
+                        printf("查無此書\n");
                     }
                     if (result == 3) {
-                        printf("¶πÆ—•X≠…§§,µL™kßR∞£\n");
+                        printf("此輸出借中，無法刪除\n");
                     }
                     break;
 
                 case '3':
                     result = addMember(members, data);
                     if (result == 1) {
-                        printf("∑sºW∑|≠˚ßπ¶®\n");
+                        printf("新增會員完成\n");
                     }
                     if (result == 2)
-                        printf("§w¶≥¶π∑|≠˚\n");
+                        printf("已有此會員\n");
                     break;
 
                 case '4':
-                    printf("Ω–øÈ§J±˝ßR∞£™∫∑|≠˚Ωs∏π:");
+                    printf("請輸入欲刪除的會員編號:");
                     scanf("%d", &id);
                     result = subMember(members, data, id);
                     if (result == 1)
-                        printf("ßR∞£∑|≠˚ßπ¶®\n");
+                        printf("刪除會員完成\n");
                     if (result == 2)
-                        printf("¨dµL¶π∑|≠˚\n");
+                        printf("查無此會員\n");
                     break;
 
                 case '5':
@@ -555,11 +565,11 @@ int main()
 
         case 'B':
         case 'b':
-            printf("Ω–øÈ§J∑|≠˚Ωs∏π:");
+            printf("請輸入會員編號:");
             scanf("\r%d", &id);
             index = searchData(data, id);
             if (index == -1) {
-                printf("µL¶π∑|≠˚©Œ¨OøÈ§Jø˘ª~\n");
+                printf("無此會員或是輸入錯誤\n");
                 exit(1);
             }
 
@@ -570,37 +580,37 @@ int main()
 
                 showBooks(books);
                 showData(data, id, index);
-                printf("Ω–øÈ§J´¸•O\n");
-                printf("1.≠…Æ— 2.¡ŸÆ— 3.≈„•‹≠…¡ŸÆ—∏ÍÆ∆ 4.µ≤ßÙ>");
+                printf("請輸入指令\n");
+                printf("1.借書 2.還書 3.顯示借還資料 4.結束>");
                 fflush(stdin);
                 scanf("\r%c", &choice);
                 switch (choice) {
                 case '1':
-                    printf("Ω–øÈ§J±˝≠…Æ—•ª•N∏π, -1µ≤ßÙ≠…Æ—> ");
+                    printf("請輸入欲借書本資料, -1結束借書 ");
                     scanf("%d", &book_id);
-                    if (book_id == -1)  // ¶p™G≠…Æ—•N∏π¨∞-1
+                    if (book_id == -1)  // 借書代號為-1
                     {
-                        printf("≠…Æ—µ≤ßÙ\n");
+                        printf("借書結束\n");
                         printf("\n");
-                        break;  // ¬˜∂}≠…Æ—™∫∞j∞È
+                        break;  // 離開借書迴圈
                     }
                     result = addData(data, books, book_id, index);
 
                     switch (result) {
                     case 1:
-                        printf("≠…Æ—ßπ¶®\n");
+                        printf("借書完成\n");
                         break;
                     case 2:
-                        printf("≠…Æ—ßπ¶®\n");
+                        printf("查無此書\n");
                         break;
                     case 3:
-                        printf("±z§w≠…¶πÆ—\n");
+                        printf("您已借此書\n");
                         break;
                     case 4:
-                        printf("±z™∫≠…Æ—√B´◊§w∫°\n");
+                        printf("您的借書額度已額滿\n");
                         break;
                     case 5:
-                        printf("¶πÆ—§w≥Q≠…®´\n");
+                        printf("此書已被借走\n");
                         break;
                     }
 
@@ -611,26 +621,26 @@ int main()
 
                 case '2':
                     if (data[index].book_num == 0) {
-                        printf("•º≠…•Ù¶ÛÆ—ƒy\n");
+                        printf("未借任何書\n");
                         break;
                     }
-                    printf("Ω–øÈ§J±˝¡ŸÆ—•ª•N∏π, -1µ≤ßÙ¡ŸÆ—> ");
+                    printf("請輸入欲還書本代號, -1結束還書");
                     scanf("%d", &book_id);
                     if (book_id == -1)  // ¶p™G≠…Æ—•N∏π¨∞-1
                     {
-                        printf("≠…Æ—µ≤ßÙ\n");
+                        printf("借書結束\n");
                         printf("\n");
                         break;  // ¬˜∂}≠…Æ—™∫∞j∞È
                     }
                     result = subdata(data, books, book_id, index);
                     if (result == 1) {
-                        printf("¡ŸÆ—ßπ¶®\n");
+                        printf("還書完成\n");
                     }
                     if (result == 2) {
-                        printf("¨dµL¶πÆ—\n");
+                        printf("查無此書\n");
                     }
                     if (result == 3) {
-                        printf("•º≠…¶πÆ—\n");
+                        printf("未借此書\n");
                     }
                     fp = fopen(DATA_FILE, "w");
                     saveData(fp, data);
@@ -652,10 +662,10 @@ int main()
 
             result = addMember(members, data);
             if (result == 1) {
-                printf("∑sºW∑|≠˚ßπ¶®\n");
+                printf("新增會員完成\n");
             }
             if (result == 2) {
-                printf("§w¶≥¶π∑|≠˚\n");
+                printf("已有此會員\n");
             }
             break;
 
@@ -664,15 +674,15 @@ int main()
             exit(1);
         }
 
-        // ¿x¶s∑|≠˚∏ÍÆ∆
+        // 儲存會員資料
         fp = fopen(MEMBER_FILE, "w");
         saveMember(fp, members);
         fclose(fp);
-        // ¿x¶sÆ—ƒy∏ÍÆ∆
+        // 儲存書籍資料
         fp = fopen(BOOK_FILE, "w");
         saveBooks(fp, books);
         fclose(fp);
-        // ¿x¶s≠…¡ŸÆ—¨ˆø˝ 
+        // 儲存借還書資料
         fp = fopen(DATA_FILE, "w");
         saveData(fp, data);
         fclose(fp);
