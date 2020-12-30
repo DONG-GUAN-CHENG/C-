@@ -1,4 +1,6 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<cstring>
 #define MAXNUM 256
 #define MEMBER_FILE "member.log"
 #define BOOK_FILE "book.log"
@@ -249,12 +251,13 @@ int addBooks(struct BOOK books[])
             return 1;
         }
     }
+    return 3;//?
 }
 
 // 刪除書籍
 int subBooks(struct BOOK books[], int book_id)
 {
-    int i, j;
+    int i;
     for (i = 1; i <= 256; i++) {
         if (books[i].book_id == book_id) {
             if (books[i].state_book == 1) {
@@ -307,6 +310,7 @@ int addMember(struct MEMBER members[], struct DATA data[])
             }
         }
     }
+    return 3;//?
 }
 
 // 刪除會員
