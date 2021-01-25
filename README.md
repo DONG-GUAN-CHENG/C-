@@ -41,6 +41,7 @@ argument:引數，變數個數依照control string決定要輸出的變數有幾
 ex:printf("%d %f %lf",number1,number2,number3)->將變數number以%d所代表的整數型態印出  
 單行註解以「//」,多行註解以「/*開頭」,『結尾 */』來包覆  
 
+
 * ***scanf()格式化輸入函式***  
 語法:``scanf("control string",argument);``
 control string 是控制字串，包含想輸出的文字格式，以及想輸出的變數轉換格式或特殊字元，輸入時必須用空格或是enter鍵來區分，用法可以參考變數轉換符號
