@@ -105,25 +105,6 @@ void inputData()
     rank4 = rankD;
 }
     
-/* ------------------------------------------------------ */
-/* 列印錄取學生的通知單訊息*/
-/* ------------------------------------------------------ */
-void typeNotice( int j )
-{
-    int i;
-    for( i = 0; i < 20; i++ ) printf( "====" ); printf( "\n" );
-    printf( "\t\t\t-----錄取通知-----\n" );
-    printf( "\t\t\t%s \n",rankSort[j].name );
-    printf( "\t\t\t  恭喜您！您已被錄取。\n" );
-    printf( "\t\t\t     您的成績:  \n" );
-    printf( "\t\t\t計算機概論\t\t%.2f\n\t\t\t演算法\t\t%.2f\n",
-           rankSort[j].Introduction_Computer_science, rankSort[j].Algorithm);
-    printf( "\t\t\t半導體製程\t\t%.2f\n\t\t\t生醫光電\t\t%.2f\n",
-           rankSort[j].Semiconductor_process , rankSort[j].Biophotonics );
-    printf( "\t\t\t總分\t\t%.2f\n",rankSort[j].total);
-    
-    for( i = 0; i < 20; i++ ) printf( "====" ); printf( "\n" );
-}
 /* ----------------------------------- */
 /* 使用選擇排序法，依總分由大到小排列  */
 /* ----------------------------------- */
@@ -140,7 +121,6 @@ void sort()
                 student[j] = temp;
             }
 }
-
 
 /* ------------------------------------------ */
 /* 對已經按總分排好序的考生進行分類排序處理   */
@@ -193,6 +173,28 @@ void ioControl()
     for ( i = 0; i < admitNum; i++ )
         typeNotice( i );
 }
+
+/* ------------------------------------------------------ */
+/* 列印錄取學生的通知單訊息*/
+/* ------------------------------------------------------ */
+void typeNotice( int j )
+{
+    int i;
+    for( i = 0; i < 20; i++ ) printf( "====" ); printf( "\n" );
+    printf( "\t\t\t-----錄取通知-----\n" );
+    printf( "\t\t\t%s \n",rankSort[j].name );
+    printf( "\t\t\t  恭喜您！您已被錄取。\n" );
+    printf( "\t\t\t     您的成績:  \n" );
+    printf( "\t\t\t計算機概論\t\t%.2f\n\t\t\t演算法\t\t%.2f\n",
+           rankSort[j].Introduction_Computer_science, rankSort[j].Algorithm);
+    printf( "\t\t\t半導體製程\t\t%.2f\n\t\t\t生醫光電\t\t%.2f\n",
+           rankSort[j].Semiconductor_process , rankSort[j].Biophotonics );
+    printf( "\t\t\t總分\t\t%.2f\n",rankSort[j].total);
+    
+    for( i = 0; i < 20; i++ ) printf( "====" ); printf( "\n" );
+}
+
+
 /* ------------------------------------------- */
 /* 主程式                                      */
 /* ------------------------------------------- */
