@@ -24,4 +24,4 @@ ps:錄取標準則是先依```類別優先(A,B,C,D)```，並在類別中再依�
 
 *** 
 ### [程式執行結果]
-
+![error](https://github.com/DONG-GUAN-CHENG/C-/blob/main/The_rank_of_score_system_project_project/result_photo.png)
